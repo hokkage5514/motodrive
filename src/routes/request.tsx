@@ -5,9 +5,10 @@ import { toast } from "sonner";
 import { addRequest, useMotos } from "@/lib/moto-store";
 
 export const Route = createFileRoute("/request")({
-  validateSearch: (search: Record<string, unknown>) => ({
-    moto: typeof search.moto === "string" ? search.moto : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { moto?: string } => {
+    const moto = search["moto"];
+    return typeof moto === "string" && moto.length > 0 ? { moto } : {};
+  },
   head: () => ({
     meta: [
       { title: "Оставить заявку на мотоцикл — MotoDrive" },
