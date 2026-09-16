@@ -31,7 +31,7 @@ const schema = z.object({
     .string()
     .trim()
     .min(2, "Укажите имя (минимум 2 символа)")
-    .max(60, "Слишком長 длинное имя"),
+    .max(60, "Слишком длинное имя"),
   phone: z
     .string()
     .trim()
