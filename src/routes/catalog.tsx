@@ -21,7 +21,7 @@ export const Route = createFileRoute("/catalog")({
       },
     ],
   }),
-  component: CatalogPage;
+  component: CatalogPage,
 });
 
 type SortKey = "price-asc" | "price-desc" | "year-desc";
