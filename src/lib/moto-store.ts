@@ -8,6 +8,8 @@ let motos: Moto[] = seedMotos;
 let requests: MotoRequest[] = [];
 let hydrated = false;
 
+const EMPTY_REQUESTS: MotoRequest[] = [];
+
 const listeners = new Set<() => void>();
 
 function emit() {
@@ -62,7 +64,7 @@ export function useRequests(): MotoRequest[] {
   return useSyncExternalStore(
     subscribe,
     () => requests,
-    () => [] as MotoRequest[],
+    () => EMPTY_REQUESTS,
   );
 }
 
