@@ -167,9 +167,10 @@ function RequestPage() {
 
         <button
           type="submit"
-          className="glow w-full rounded-md bg-primary px-6 py-3 font-display text-sm font-semibold uppercase text-primary-foreground transition-opacity hover:opacity-90"
+          disabled={sending}
+          className="glow w-full rounded-md bg-primary px-6 py-3 font-display text-sm font-semibold uppercase text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
         >
-          Отправить заявку
+          {sending ? "Отправляем…" : "Отправить заявку"}
         </button>
       </form>
     </div>
