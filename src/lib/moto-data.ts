@@ -6,6 +6,16 @@ import tourerSilver from "@/assets/moto-tourer-silver.jpg";
 import sportGreen from "@/assets/moto-sport-green.jpg";
 import nakedYellow from "@/assets/moto-naked-yellow.jpg";
 import advWhite from "@/assets/moto-adventure-white.jpg";
+import ninjaH2 from "@/assets/moto-ninja-h2.jpg";
+import panigaleV4 from "@/assets/moto-panigale-v4.jpg";
+import m1000rr from "@/assets/moto-m1000rr.jpg";
+import s1000rr from "@/assets/moto-s1000rr.jpg";
+import fireblade from "@/assets/moto-fireblade.jpg";
+import rsv4 from "@/assets/moto-rsv4.jpg";
+import zx10r from "@/assets/moto-zx10r.jpg";
+import gsxr1000 from "@/assets/moto-gsxr1000.jpg";
+import hayabusa from "@/assets/moto-hayabusa.jpg";
+import streetfighterV4 from "@/assets/moto-streetfighter-v4.jpg";
 
 export const MOTO_TYPES = ["Спорт", "Нейкед", "Эндуро", "Круизер", "Турер"] as const;
 export type MotoType = (typeof MOTO_TYPES)[number];
