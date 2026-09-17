@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { toast } from "sonner";
 import { addRequest, useMotos } from "@/lib/moto-store";
+import { sendRequestToTelegram } from "@/lib/telegram.functions";
 
 export const Route = createFileRoute("/request")({
   validateSearch: (search: Record<string, unknown>): { moto?: string } => {
@@ -55,11 +57,13 @@ function RequestPage() {
     comment: "",
   });
   const [errors, setErrors] = useState<Errors>({});
+  const [sending, setSending] = useState(false);
+  const notifyTelegram = useServerFn(sendRequestToTelegram);
 
   const field =
     "h-11 w-full rounded-md border border-input bg-background px-3 text-sm outline-none focus:border-primary";
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const result = schema.safeParse(form);
     if (!result.success) {
@@ -73,9 +77,21 @@ function RequestPage() {
       return;
     }
     setErrors({});
+    setSending(true);
     addRequest(result.data);
-    toast.success("Заявка отправлена! Менеджер свяжется с вами в ближайшее время.");
-    setForm({ name: "", phone: "", moto: "", comment: "" });
+    try {
+      const res = await notifyTelegram({ data: result.data });
+      if (res.ok) {
+        toast.success("Заявка отправлена! Менеджер свяжется с вами в ближайшее время.");
+      } else {
+        toast.warning("Заявка сохранена, но уведомление в Telegram не отправилось.");
+      }
+    } catch {
+      toast.warning("Заявка сохранена, но уведомление в Telegram не отправилось.");
+    } finally {
+      setSending(false);
+      setForm({ name: "", phone: "", moto: "", comment: "" });
+    }
   }
 
   return (
@@ -151,9 +167,10 @@ function RequestPage() {
 
         <button
           type="submit"
-          className="glow w-full rounded-md bg-primary px-6 py-3 font-display text-sm font-semibold uppercase text-primary-foreground transition-opacity hover:opacity-90"
+          disabled={sending}
+          className="glow w-full rounded-md bg-primary px-6 py-3 font-display text-sm font-semibold uppercase text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
         >
-          Отправить заявку
+          {sending ? "Отправляем…" : "Отправить заявку"}
         </button>
       </form>
     </div>
