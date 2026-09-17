@@ -6,6 +6,16 @@ import tourerSilver from "@/assets/moto-tourer-silver.jpg";
 import sportGreen from "@/assets/moto-sport-green.jpg";
 import nakedYellow from "@/assets/moto-naked-yellow.jpg";
 import advWhite from "@/assets/moto-adventure-white.jpg";
+import ninjaH2 from "@/assets/moto-ninja-h2.jpg";
+import panigaleV4 from "@/assets/moto-panigale-v4.jpg";
+import m1000rr from "@/assets/moto-m1000rr.jpg";
+import s1000rr from "@/assets/moto-s1000rr.jpg";
+import fireblade from "@/assets/moto-fireblade.jpg";
+import rsv4 from "@/assets/moto-rsv4.jpg";
+import zx10r from "@/assets/moto-zx10r.jpg";
+import gsxr1000 from "@/assets/moto-gsxr1000.jpg";
+import hayabusa from "@/assets/moto-hayabusa.jpg";
+import streetfighterV4 from "@/assets/moto-streetfighter-v4.jpg";
 
 export const MOTO_TYPES = ["Спорт", "Нейкед", "Эндуро", "Круизер", "Турер"] as const;
 export type MotoType = (typeof MOTO_TYPES)[number];
@@ -150,6 +160,150 @@ export const seedMotos: Moto[] = [
     description:
       "Флагманский тяжёлый турэндуро с оппозитным двигателем ShiftCam, алюминиевыми кофрами, огромным запасом хода и полным набором электронных помощников.",
     image: advWhite,
+  },
+  {
+    id: "ninja-h2",
+    name: "Kawasaki Ninja H2",
+    brand: "Kawasaki",
+    type: "Спорт",
+    price: 9850000,
+    year: 2024,
+    engine: 998,
+    power: 231,
+    topSpeed: 299,
+    description:
+      "Гипербайк с механическим нагнетателем: зеркально-чёрный кузов, трубчатая рама, взрывное ускорение и характерный свист компрессора. Техника не для новичков.",
+    image: ninjaH2,
+    popular: true,
+  },
+  {
+    id: "panigale-v4s",
+    name: "Ducati Panigale V4 S",
+    brand: "Ducati",
+    type: "Спорт",
+    price: 8650000,
+    year: 2024,
+    engine: 1103,
+    power: 216,
+    topSpeed: 299,
+    description:
+      "Флагманский суперспорт с двигателем Desmosedici Stradale, аэродинамическими крыльями, полуактивной подвеской Öhlins и электроникой из мира MotoGP.",
+    image: panigaleV4,
+    popular: true,
+  },
+  {
+    id: "m1000rr",
+    name: "BMW M 1000 RR",
+    brand: "BMW",
+    type: "Спорт",
+    price: 9450000,
+    year: 2024,
+    engine: 999,
+    power: 218,
+    topSpeed: 306,
+    description:
+      "Омологационный трековый снаряд: карбоновые обвес и колёса, крылья с высокой прижимной силой, тормоза Nissin и мотор ShiftCam, раскрученный до 218 л.с.",
+    image: m1000rr,
+  },
+  {
+    id: "s1000rr",
+    name: "BMW S 1000 RR",
+    brand: "BMW",
+    type: "Спорт",
+    price: 6350000,
+    year: 2023,
+    engine: 999,
+    power: 210,
+    topSpeed: 303,
+    description:
+      "Эталонный литровый суперспорт: лёгкая рама Flex Frame, ShiftCam с широкой полкой тяги, режимы езды Pro и точная обратная связь на треке и в дороге.",
+    image: s1000rr,
+    popular: true,
+  },
+  {
+    id: "cbr1000rr-r",
+    name: "Honda CBR1000RR-R Fireblade",
+    brand: "Honda",
+    type: "Спорт",
+    price: 7250000,
+    year: 2024,
+    engine: 1000,
+    power: 217,
+    topSpeed: 299,
+    description:
+      "Гоночная Fireblade в раскраске HRC: аэродинамика от RC213V, шатуны с титановыми деталями, короткая база и настройки, заточенные под круговое время.",
+    image: fireblade,
+  },
+  {
+    id: "rsv4-1100-factory",
+    name: "Aprilia RSV4 1100 Factory",
+    brand: "Aprilia",
+    type: "Спорт",
+    price: 7890000,
+    year: 2024,
+    engine: 1099,
+    power: 220,
+    topSpeed: 305,
+    description:
+      "Итальянский V4 с открытым характером: кованые колёса, электронная подвеска Öhlins Smart EC, регулируемая геометрия рамы и один из лучших саундтреков.",
+    image: rsv4,
+  },
+  {
+    id: "ninja-zx10r",
+    name: "Kawasaki Ninja ZX-10R",
+    brand: "Kawasaki",
+    type: "Спорт",
+    price: 5390000,
+    year: 2023,
+    engine: 998,
+    power: 203,
+    topSpeed: 299,
+    description:
+      "Многократный чемпион WSBK в серийном исполнении: точная передняя часть, квикшифтер в обе стороны, электронный контроль тяги KTRC и узнаваемая зелёная ливрея.",
+    image: zx10r,
+  },
+  {
+    id: "gsxr1000r",
+    name: "Suzuki GSX-R1000R",
+    brand: "Suzuki",
+    type: "Спорт",
+    price: 4980000,
+    year: 2023,
+    engine: 1000,
+    power: 195,
+    topSpeed: 299,
+    description:
+      "Классический GSX-R с системой переменных фаз, подвеской Showa Balance Free, лёгким запуском с места и понятным характером на любых скоростях.",
+    image: gsxr1000,
+  },
+  {
+    id: "hayabusa",
+    name: "Suzuki Hayabusa",
+    brand: "Suzuki",
+    type: "Турер",
+    price: 4750000,
+    year: 2024,
+    engine: 1340,
+    power: 187,
+    topSpeed: 299,
+    description:
+      "Легендарный гипер-спорт-турер: обтекаемый кузов, огромная тяга на любых оборотах, комфортная посадка и уверенность на дальних трассовых перегонах.",
+    image: hayabusa,
+    popular: true,
+  },
+  {
+    id: "streetfighter-v4s",
+    name: "Ducati Streetfighter V4 S",
+    brand: "Ducati",
+    type: "Нейкед",
+    price: 7690000,
+    year: 2024,
+    engine: 1103,
+    power: 208,
+    topSpeed: 290,
+    description:
+      "Panigale без обтекателя: тот же V4, широкий руль, биплановые крылья и злая посадка. Максимум эмоций на городских улицах и извилистых дорогах.",
+    image: streetfighterV4,
   },
 ];
 
